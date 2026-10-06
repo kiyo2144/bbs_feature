@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミニ掲示板</title>
+</head>
+
+<body>
+    <h1>ミニ掲示板</h1>
+
+    <form action="/posts" method="post">
+        <p>名前:<br> <input type="text" name="name"></p>
+        <p>本文:<br><textarea name="body" rows="3" cols="40"></textarea></p>
+        <input type="submit" value="投稿">
+    </form>
+
+    <hr>
+
+    <!-- 投稿一覧 -->
+    {% for post in posts %}
+    <p>
+        <strong>{{ post.name }}</strong>({{ post.created_at }})
+        <br>
+        {{ post.body }}
+    </p>
+    <form action="/posts/{{post.id}}/delete" method="post">
+        <input type="submit" value="削除">
+    </form>
+    {% endfor %}
+
+
+</body>
+
+</html>
