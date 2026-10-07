@@ -1,4 +1,3 @@
-import re
 from flask import Flask, render_template, request, redirect, url_for
 from models import Post
 
@@ -28,6 +27,20 @@ def delete(post_id):
     post.delete_instance()
 
     return redirect(url_for("index"))
+
+
+@app.route("/posts/<int:post_id>/edit", methods=["GET", "POST"])
+def edit(post_id):
+    post = Post.get_by_id(post_id)
+    if request.method == "GET":
+        return """
+        <form action="/posts/<int:post_id>/edit" method="post">
+            Password:<input type="password" name="password"><br>
+            <input type="submit">
+        </form>
+        """
+
+    return render_template("edit.html", post=post)
 
 
 if __name__ == "__main__":

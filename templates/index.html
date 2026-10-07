@@ -25,9 +25,14 @@
         <br>
         {{ post.body }}
     </p>
-    <form action="/posts/{{post.id}}/delete" method="post">
+
+    <form action="/posts/{{post.id}}/delete" method="post" style="display: inline-block;">
         <input type="submit" value="削除">
     </form>
+    <form action="/posts/{{post.id}}/edit" method="post" style="display: inline-block;">
+        <input type="submit" value="編集">
+    </form>
+
     {% endfor %}
 
 
