@@ -17,7 +17,9 @@
     </form>
 
     <hr>
-
+    <form action="/" method="get">
+        <p>キーワード:<input name="q"><input type="submit" value="検索"></p>
+    </form>
     <!-- 投稿一覧 -->
     {% for post in posts %}
     <p>
@@ -25,8 +27,11 @@
         <br>
         {{ post.body }}
     </p>
-    <form action="/posts/{{post.id}}/delete" method="post">
+    <form action="/posts/{{post.id}}/delete" method="post" style="display: inline-block;">
         <input type="submit" value="削除">
+    </form>
+    <form action="/posts/{{post.id}}/edit" method="get" style="display: inline-block;">
+        <input type="submit" value="編集">
     </form>
     {% endfor %}
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミニ掲示板</title>
+</head>
+
+<body>
+    <h1>投稿の編集</h1>
+
+    <form method="post">
+        <p>名前:<br> <input type="text" name="name" value="{{ post.name }}"></p>
+        <p>本文:<br><textarea name="body" rows="3" cols="40">{{ post.body }}</textarea></p>
+        <input type="submit" value="更新">
+    </form>
+
+    <hr>
+
+
+</body>
+
+</html>
