@@ -20,6 +20,18 @@
     <form action="/" method="get">
         <p>キーワード:<input name="q"><input type="submit" value="検索"></p>
     </form>
+
+    <!-- 件数 -->
+    {% if q != "" %}
+    <p>「{{ q }}」の検索結果: {{ count }} 件</p>
+    {% else %}
+    <p>全 {{ count }} 件</p>
+    {% endif %}
+
+    {% if count == 0 %}
+    <p>見つかりませんでした</p>
+    {% endif %}
+
     <!-- 投稿一覧 -->
     {% for post in posts %}
     <p>
