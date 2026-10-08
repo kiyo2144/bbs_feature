@@ -10,10 +10,15 @@
 <body>
     <h1>投稿の編集</h1>
 
-    <form action="/posts" method="post">
+    <form method="post">
         <p>名前:<br> <input type="text" name="name" value="{{ post.name }}"></p>
-        <p>本文:<br><textarea name="body" rows="3" cols="40">{{post.body}}</textarea></p>
+        <p>本文:<br><textarea name="body" rows="3" cols="40">{{ post.body }}</textarea></p>
         <input type="submit" value="更新">
     </form>
 
     <hr>
+
+
+</body>
+
+</html>
